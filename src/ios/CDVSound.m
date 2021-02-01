@@ -676,7 +676,7 @@
         jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%@);", @"cordova.require('cordova-plugin-media.Media').onStatus", mediaId, MEDIA_ERROR, [self createMediaErrorWithCode:MEDIA_ERR_DECODE message:nil]];
     }
     if (self.avSession) {
-        [self.avSession withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation setActive:NO error:nil];
+        [self.avSession setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
     }
     [self.commandDelegate evalJs:jsString];
 }
